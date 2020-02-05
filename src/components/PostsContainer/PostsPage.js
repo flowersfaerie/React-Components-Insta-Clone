@@ -1,17 +1,21 @@
 //Complete the necessary code in this file
-import React, {useState} from "react";
+import React from "react";
 import Post from "./Post";
 import "./Posts.css";
-import App, {data} from "../../App"
+import CommentSectionContainer from "../CommentSection/CommentSectionContainer"
+// import App from "../../App"
 
 // pass the data from App.js down as props then map through the data
-const PostsPage = (props) => {
+const PostsPage = ({data}) => {
   return (
     <div className="posts-container-wrapper">
-      const [dataArray, setDataArray] = useState(props.data[0]);
-      {props.data.map(item => {
-        return <Post post={dataArray} />;
-      })}
+      {/* map through data here */}
+      {data.map(user => (
+          <div>
+            <Post post={user} />
+            <CommentSectionContainer post={user} key={data.index}/>
+          </div>
+      ))}
     </div>
   );
 };
